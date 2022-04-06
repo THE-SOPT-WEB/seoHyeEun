@@ -7,16 +7,30 @@
 
 main {
   display: flex;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 aside.sideBar {
   flex: 1;
 }
 
-div.sideBar__wrapper,
+div.sideBar__wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+
+  width: 150px;
+  background-color: rgb(255, 121, 143);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0 auto;
+}
+
 div.cart__wrapper {
-  width: 80%;
+  width: 70%;
   background-color: rgb(255, 121, 143);
   border-radius: 8px;
   display: flex;
