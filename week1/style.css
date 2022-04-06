@@ -15,11 +15,12 @@
 
 body {
   font-family: "Cafe24Ohsquareair";
+  position: absolute;
+  width: 100%;
 }
 
 header {
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 40px 0;
   cursor: default;
@@ -182,13 +183,13 @@ div.cartBtn > button:active {
   background-color: rgb(255, 192, 76);
 }
 
-@media all and (min-width: 1110px) {
+@media (min-width: 1110px) {
   aside#tabletView {
     display: none;
   }
 }
 
-@media (min-width: 500px) and (max-width: 1110px) {
+@media (max-width: 1110px) {
   aside#desktopView {
     display: none;
   }
@@ -205,4 +206,10 @@ div.cartBtn > button:active {
   article.burger__card {
     width: 95%;
   }
+  div.cart__wrapper {
+    width: 80%;
+  }
 }
+/* 
+@media (max-width: 700px) {
+} */
