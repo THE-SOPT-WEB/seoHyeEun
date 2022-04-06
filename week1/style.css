@@ -29,16 +29,6 @@ div.sideBar__wrapper {
   margin: 0 auto;
 }
 
-div.cart__wrapper {
-  width: 70%;
-  background-color: rgb(255, 121, 143);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 0 auto;
-}
-
 div.sideBar__wrapper > h3 {
   margin-bottom: 10px;
   font-weight: bold;
@@ -68,10 +58,6 @@ section.burger {
   display: flex;
   flex-wrap: wrap;
   gap: 20px; /*flex element간에 줄 수 있는 속성*/
-}
-
-aside.cart {
-  flex: 1.5;
 }
 
 article.burger__card {
@@ -118,6 +104,20 @@ article.burger__card:hover {
   transform: translateY(-5px);
 
   color: rgb(61, 61, 61);
+}
+
+aside.cart {
+  flex: 1.5;
+}
+
+div.cart__wrapper {
+  width: 70%;
+  background-color: rgb(255, 121, 143);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0 auto;
 }
 
 hr.cart__line {
