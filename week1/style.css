@@ -1,8 +1,35 @@
+@font-face {
+  font-family: "Cafe24Ohsquareair";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/Cafe24Ohsquareair.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+body {
+  font-family: "Cafe24Ohsquareair";
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  cursor: default;
+  background-color: rgb(255, 238, 86);
+}
+
+header > h1 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 main {
@@ -20,7 +47,7 @@ div.sideBar__wrapper {
   position: sticky;
   top: 20px;
 
-  width: 150px;
+  width: 180px;
   background-color: rgb(255, 121, 143);
   border-radius: 8px;
   display: flex;
@@ -38,9 +65,11 @@ div.sideBar__wrapper > h3 {
 li.sideBar__shop {
   font-size: 14px;
   cursor: pointer;
-  background-color: rgb(252, 245, 140);
+  background-color: rgb(255, 192, 76);
   padding: 5px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 
 li.sideBar__shop:nth-child(1) {
@@ -49,7 +78,7 @@ li.sideBar__shop:nth-child(1) {
 
 li.sideBar__shop:hover {
   font-weight: bold;
-  background-color: rgb(255, 192, 76);
+  background-color: lemonchiffon;
 }
 
 section.burger {
@@ -66,15 +95,15 @@ article.burger__card {
   border: 1px solid rgb(167, 167, 167);
   border-radius: 8px;
 
-  width: 45%;
+  width: 48%;
   box-shadow: 2px 2px 2px rgb(192, 192, 192);
-  padding: 3px;
-  transition: box-shadow 100ms ease-in-out, transform 200ms ease-in-out;
+  padding: 10px;
+  transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
 }
 
 article.burger__card > img {
-  width: 150px;
-  height: 110px;
+  width: 220px;
+  height: 130px;
 }
 
 div.burger__content {
@@ -85,10 +114,12 @@ div.burger__content {
 
 h2.burger__name {
   font-size: 20px;
+  margin-bottom: 3px;
 }
 
 div.burger__price {
   font-size: 15px;
+  margin-bottom: 5px;
 }
 
 p.burger__desc {
@@ -99,8 +130,8 @@ article.burger__card:hover {
   background-color: rgb(255, 192, 76);
   border: none;
   cursor: pointer;
-  box-shadow: 5px 5px 5px rgb(192, 192, 192);
-  transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
+  box-shadow: 4px 4px 4px rgb(192, 192, 192);
+  transition: box-shadow 10ms ease-in-out, transform 10ms ease-in-out;
   transform: translateY(-5px);
 
   color: rgb(61, 61, 61);
@@ -111,7 +142,7 @@ aside.cart {
 }
 
 div.cart__wrapper {
-  width: 70%;
+  width: 280px;
   background-color: rgb(255, 121, 143);
   border-radius: 8px;
   display: flex;
@@ -121,7 +152,7 @@ div.cart__wrapper {
 }
 
 hr.cart__line {
-  margin: 30px 0 10px;
+  margin: 30px 0 20px;
   width: 100%;
   border-top: 1px solid white;
   border-bottom: 0;
@@ -135,12 +166,37 @@ div.cartBtn {
 }
 
 div.cartBtn > button {
+  font-family: "Cafe24Ohsquareair";
   cursor: pointer;
-  border-radius: 5px;
-  padding: 3px;
-  background-color: rgb(252, 245, 140);
+  border-radius: 8px;
+  padding: 5px;
+  background-color: lemonchiffon;
+}
+
+div.cartBtn > button:hover {
+  background-color: rgb(255, 192, 76);
 }
 
 div.cartBtn > button:active {
   font-weight: bold;
+  background-color: rgb(255, 192, 76);
+}
+
+@media all and (min-width: 1110px) {
+  aside#tabletView {
+    display: none;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1110px) {
+  aside#desktopView {
+    display: none;
+  }
+
+  div.sideBar__wrapper {
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    width: 80px;
+  }
 }
