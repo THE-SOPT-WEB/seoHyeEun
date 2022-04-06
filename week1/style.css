@@ -91,7 +91,8 @@ section.burger {
 
 article.burger__card {
   display: flex;
-
+  justify-content: center;
+  align-items: center;
   border: 1px solid rgb(167, 167, 167);
   border-radius: 8px;
 
@@ -198,5 +199,11 @@ div.cartBtn > button:active {
     top: 0;
     background-color: transparent;
     width: 80px;
+  }
+}
+
+@media (max-width: 940px) {
+  article.burger__card {
+    width: 95%;
   }
 }
