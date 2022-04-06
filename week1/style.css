@@ -43,10 +43,6 @@ aside.sideBar {
 }
 
 div.sideBar__wrapper {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
-
   width: 180px;
   background-color: rgb(255, 121, 143);
   border-radius: 8px;
@@ -150,6 +146,9 @@ div.cart__wrapper {
   flex-direction: column;
   padding: 10px;
   margin: 0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 
 hr.cart__line {
