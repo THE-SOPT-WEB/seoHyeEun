@@ -6,13 +6,6 @@
   font-style: normal;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 body {
   font-family: "Cafe24Ohsquareair";
   position: absolute;
