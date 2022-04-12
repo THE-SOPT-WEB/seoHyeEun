@@ -1,13 +1,4 @@
-@font-face {
-  font-family: "Cafe24Ohsquareair";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/Cafe24Ohsquareair.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
-  font-family: "Cafe24Ohsquareair";
   position: absolute;
   width: 100%;
 }
@@ -16,6 +7,8 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/*Header*/
 
 header {
   display: flex;
@@ -31,11 +24,15 @@ header {
   transform: translate(-50%);
 }
 
+/*Main*/
+
 main {
   display: flex;
   margin-top: 20px;
   margin-bottom: 30px;
 }
+
+/*Main_nav*/
 
 .main__nav {
   flex: 1;
@@ -73,6 +70,8 @@ main {
   font-weight: bold;
   background-color: lemonchiffon;
 }
+
+/*Burger__card*/
 
 .burger {
   flex: 3;
@@ -129,6 +128,8 @@ main {
   color: rgb(61, 61, 61);
 }
 
+/*Cart*/
+
 .main__cart {
   flex: 1.5;
 }
@@ -174,6 +175,8 @@ main {
   font-weight: bold;
   background-color: rgb(255, 192, 76);
 }
+
+/*responsive*/
 
 @media (min-width: 1110px) {
   #tabletView {
