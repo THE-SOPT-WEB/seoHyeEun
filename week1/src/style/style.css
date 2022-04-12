@@ -178,26 +178,30 @@ main {
 
 /*responsive*/
 
-@media (min-width: 1110px) {
-  #tabletView {
-    display: none;
-  }
-}
-
-@media (max-width: 1110px) {
-  #desktopView {
-    display: none;
+@media (max-width: 1023px) {
+  .main__nav {
+    flex: none;
   }
 
   .main__nav__wrapper {
     position: absolute;
     top: 0;
     background-color: transparent;
-    width: 80px;
+    width: 120px;
+  }
+
+  .main__nav-title {
+    display: none;
+  }
+
+  .main__nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-@media (max-width: 940px) {
+@media all and (max-width: 900px) {
   .burger__card {
     width: 95%;
   }
