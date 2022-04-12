@@ -12,6 +12,11 @@ body {
   width: 100%;
 }
 
+.style__column {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -20,7 +25,7 @@ header {
   background-color: rgb(255, 238, 86);
 }
 
-header > h1 {
+.title {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -32,27 +37,25 @@ main {
   margin-bottom: 30px;
 }
 
-aside.sideBar {
+.main__nav {
   flex: 1;
 }
 
-div.sideBar__wrapper {
+.main__nav__wrapper {
   width: 180px;
   background-color: rgb(255, 121, 143);
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
   padding: 10px;
   margin: 0 auto;
 }
 
-div.sideBar__wrapper > h3 {
+.main__nav-title {
   margin-bottom: 10px;
   font-weight: bold;
   cursor: default;
 }
 
-li.sideBar__shop {
+.main__nav-list {
   font-size: 14px;
   cursor: pointer;
   background-color: rgb(255, 192, 76);
@@ -62,16 +65,16 @@ li.sideBar__shop {
   align-items: center;
 }
 
-li.sideBar__shop:nth-child(1) {
+.main__nav-list:nth-child(1) {
   margin-bottom: 8px;
 }
 
-li.sideBar__shop:hover {
+.main__nav-list:hover {
   font-weight: bold;
   background-color: lemonchiffon;
 }
 
-section.burger {
+.burger {
   flex: 3;
   /* width: 100%; */
   display: flex;
@@ -79,7 +82,7 @@ section.burger {
   gap: 20px; /*flex element간에 줄 수 있는 속성*/
 }
 
-article.burger__card {
+.burger__card {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,32 +95,30 @@ article.burger__card {
   transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
 }
 
-article.burger__card > img {
+.burger__card > img {
   width: 220px;
   height: 130px;
 }
 
-div.burger__content {
-  display: flex;
-  flex-direction: column;
+.burger__contents {
   justify-content: center;
 }
 
-h2.burger__name {
+.burger__content-name {
   font-size: 20px;
   margin-bottom: 3px;
 }
 
-div.burger__price {
+.burger__content-price {
   font-size: 15px;
   margin-bottom: 5px;
 }
 
-p.burger__desc {
+.burger__content-desc {
   font-size: 12px;
 }
 
-article.burger__card:hover {
+.burger__card:hover {
   background-color: rgb(255, 192, 76);
   border: none;
   cursor: pointer;
@@ -128,16 +129,14 @@ article.burger__card:hover {
   color: rgb(61, 61, 61);
 }
 
-aside.cart {
+.main__cart {
   flex: 1.5;
 }
 
-div.cart__wrapper {
+.main__cart__wrapper {
   width: 280px;
   background-color: rgb(255, 121, 143);
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
   padding: 10px;
   margin: 0 auto;
   position: -webkit-sticky;
@@ -145,21 +144,21 @@ div.cart__wrapper {
   top: 20px;
 }
 
-hr.cart__line {
+.main__cart-line {
   margin: 30px 0 20px;
   width: 100%;
   border-top: 1px solid white;
   border-bottom: 0;
 }
 
-div.cartBtn {
+.main__cart-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
 }
 
-div.cartBtn > button {
+.main__cart-button {
   font-family: "Cafe24Ohsquareair";
   cursor: pointer;
   border-radius: 8px;
@@ -167,27 +166,27 @@ div.cartBtn > button {
   background-color: lemonchiffon;
 }
 
-div.cartBtn > button:hover {
+.main__cart-button:hover {
   background-color: rgb(255, 192, 76);
 }
 
-div.cartBtn > button:active {
+.main__cart-button:active {
   font-weight: bold;
   background-color: rgb(255, 192, 76);
 }
 
 @media (min-width: 1110px) {
-  aside#tabletView {
+  #tabletView {
     display: none;
   }
 }
 
 @media (max-width: 1110px) {
-  aside#desktopView {
+  #desktopView {
     display: none;
   }
 
-  div.sideBar__wrapper {
+  .main__nav__wrapper {
     position: absolute;
     top: 0;
     background-color: transparent;
@@ -196,13 +195,10 @@ div.cartBtn > button:active {
 }
 
 @media (max-width: 940px) {
-  article.burger__card {
+  .burger__card {
     width: 95%;
   }
-  div.cart__wrapper {
+  .main__cart__wrapper {
     width: 80%;
   }
 }
-/* 
-@media (max-width: 700px) {
-} */
