@@ -31,4 +31,4 @@ const quizList = [
   },
 ];
 
-
+//1. ul.answer__list > li 에 있는 다섯 가지 이름을 클릭했을 때의 동작을 정의
