@@ -1,0 +1,211 @@
+body {
+  position: absolute;
+  width: 100%;
+}
+
+.style__column {
+  display: flex;
+  flex-direction: column;
+}
+
+/*Header*/
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+  cursor: default;
+  background-color: rgb(255, 238, 86);
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/*Main*/
+
+main {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/*Main_nav*/
+
+.main__nav {
+  flex: 1;
+}
+
+.main__nav__wrapper {
+  width: 180px;
+  background-color: rgb(255, 121, 143);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.main__nav-title {
+  margin-bottom: 10px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.main__nav-list {
+  font-size: 14px;
+  cursor: pointer;
+  background-color: rgb(255, 192, 76);
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.main__nav-list:nth-child(1) {
+  margin-bottom: 8px;
+}
+
+.main__nav-list:hover {
+  font-weight: bold;
+  background-color: lemonchiffon;
+}
+
+/*Burger__card*/
+
+.burger {
+  flex: 3;
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /*flex element간에 줄 수 있는 속성*/
+}
+
+.burger__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 8px;
+
+  width: 48%;
+  box-shadow: 2px 2px 2px rgb(192, 192, 192);
+  padding: 10px;
+  transition: box-shadow 100ms ease-in-out, transform 100ms ease-in-out;
+}
+
+.burger__card > img {
+  width: 220px;
+  height: 130px;
+}
+
+.burger__contents {
+  justify-content: center;
+}
+
+.burger__content-name {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+.burger__content-price {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.burger__content-desc {
+  font-size: 12px;
+}
+
+.burger__card:hover {
+  background-color: rgb(255, 192, 76);
+  border: none;
+  cursor: pointer;
+  box-shadow: 4px 4px 4px rgb(192, 192, 192);
+  transition: box-shadow 10ms ease-in-out, transform 10ms ease-in-out;
+  transform: translateY(-5px);
+
+  color: rgb(61, 61, 61);
+}
+
+/*Cart*/
+
+.main__cart {
+  flex: 1.5;
+}
+
+.main__cart__wrapper {
+  width: 280px;
+  background-color: rgb(255, 121, 143);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
+.main__cart-line {
+  margin: 30px 0 20px;
+  width: 100%;
+  border-top: 1px solid white;
+  border-bottom: 0;
+}
+
+.main__cart-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.main__cart-button {
+  font-family: "Cafe24Ohsquareair";
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: lemonchiffon;
+}
+
+.main__cart-button:hover {
+  background-color: rgb(255, 192, 76);
+}
+
+.main__cart-button:active {
+  font-weight: bold;
+  background-color: rgb(255, 192, 76);
+}
+
+/*responsive*/
+
+@media (max-width: 1023px) {
+  .main__nav {
+    flex: none;
+  }
+
+  .main__nav__wrapper {
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    width: 120px;
+  }
+
+  .main__nav-title {
+    display: none;
+  }
+
+  .main__nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .burger__card {
+    width: 95%;
+  }
+  .main__cart__wrapper {
+    width: 80%;
+  }
+}
