@@ -29,7 +29,23 @@ function deleteBurgerFromCart(e) {
   e.currentTarget.closest("li").remove();
 }
 
-function attachEvent({ burgerCardNodeList, emptyCartButton }) {
+// 모달띄우기
+function showModal() {
+  const orderModal = $(".modal");
+  orderModal.classList.remove("hide");
+}
+
+function closeModal() {
+  const orderModal = $(".modal");
+  orderModal.classList.add("hide");
+}
+
+function attachEvent({
+  burgerCardNodeList,
+  emptyCartButton,
+  orderButton,
+  closeButton,
+}) {
   burgerCardNodeList.addEventListener("click", (e) => {
     if (!e.target.closest(".burger__card")) return;
 
@@ -37,7 +53,6 @@ function attachEvent({ burgerCardNodeList, emptyCartButton }) {
     const burgerContents = burgerCard.children[1];
     const burgerName = burgerContents.children[0].innerText;
     const burgerPrice = burgerContents.children[1].innerText;
-
     // 장바구니에 버거 추가
     addBurgerToCart(burgerName, burgerPrice);
   });
@@ -45,8 +60,15 @@ function attachEvent({ burgerCardNodeList, emptyCartButton }) {
   emptyCartButton.addEventListener("click", (e) => {
     emptyAllInCart();
   });
+  //주문하기
+  orderButton.addEventListener("click", (e) => {
+    showModal();
+  });
+  //모달 닫기
+  closeButton.addEventListener("click", (e) => {
+    closeModal();
+  });
 }
-
 // 장바구니 관리 함수
 function cartManager(burgerInfo) {
   attachEvent(burgerInfo);
@@ -57,5 +79,7 @@ window.onload = () => {
   cartManager({
     burgerCardNodeList: $(".burger"),
     emptyCartButton: $(".main__cart-cancelBtn"),
+    orderButton: $(".main__cart-orderBtn"),
+    closeButton: $(".modal__closeBtn"),
   });
 };
