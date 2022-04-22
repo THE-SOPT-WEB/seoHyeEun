@@ -47,7 +47,7 @@ function showModal(modalContent, keepOpen) {
 
   modal.classList.remove("hide");
 
-  if (keepOpen) return;
+  if (keepOpen) return; // 왜 정답 모달이랑 같이 불렸을 때 계속 떠있는겨?
 
   setTimeout(() => {
     modal.classList.add("hide");
