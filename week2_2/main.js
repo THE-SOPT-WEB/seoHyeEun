@@ -2,12 +2,6 @@ const $ = (selector) => document.querySelector(selector);
 const $All = (selector) => document.querySelectorAll(selector);
 const cartListWrapper = $(".main__cart-list-wrapper");
 
-function emptyAllInCart() {
-  while (cartListWrapper.hasChildNodes()) {
-    cartListWrapper.removeChild(cartListWrapper.firstChild);
-  }
-}
-
 function addBurgerToCart(targetBurgerName, targetBurgerPrice) {
   const cartList = document.createElement("li");
 
@@ -19,6 +13,20 @@ function addBurgerToCart(targetBurgerName, targetBurgerPrice) {
     <button type="button" class="main__cart-list-deleteBtn">❌</button>
   `;
   cartListWrapper.appendChild(cartList);
+
+  cartList
+    .querySelector("button.main__cart-list-deleteBtn")
+    .addEventListener("click", (e) => deleteBurgerFromCart(e));
+}
+
+function emptyAllInCart() {
+  while (cartListWrapper.hasChildNodes()) {
+    cartListWrapper.removeChild(cartListWrapper.firstChild);
+  }
+}
+// 삭제버튼 누르면 해당요소 삭제
+function deleteBurgerFromCart(e) {
+  e.currentTarget.closest("li").remove();
 }
 
 function attachEvent({ burgerCardNodeList, emptyCartButton }) {
@@ -33,7 +41,6 @@ function attachEvent({ burgerCardNodeList, emptyCartButton }) {
     // 장바구니에 버거 추가
     addBurgerToCart(burgerName, burgerPrice);
   });
-
   // 장바구니 비우기
   emptyCartButton.addEventListener("click", (e) => {
     emptyAllInCart();
