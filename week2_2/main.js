@@ -9,6 +9,8 @@ const parsePriceToNumber = (price) => {
   return +removedComma;
 };
 
+/*------------ */
+
 // 버거 카드를 눌렀을 때
 function addBurgerToCart(burgerName, burgerPrice) {
   const targetBurgerName = burgerName;
@@ -21,6 +23,7 @@ function addBurgerToCart(burgerName, burgerPrice) {
     addExistBurgerToCart(targetBurgerName);
   }
   calculateAmount();
+  addAnimation();
 }
 
 // 새로운 버거 추가했을 때 t=
@@ -47,6 +50,30 @@ function addExistBurgerToCart(targetBurgerName) {
   $(`.main__${targetBurgerName}-amount`).value++;
 }
 
+// 누적금액
+function calculateAmount() {
+  const cartLists = $All(".main__cart-list");
+  let totalPrice = 0;
+
+  cartLists.forEach((cartList) => {
+    const burgerPrice = parsePriceToNumber(
+      cartList.querySelector(".main__cart-list-price").innerText
+    );
+    const burgerAmount = cartList.querySelector(
+      ".main__cart-list-amount"
+    ).value;
+    totalPrice += burgerPrice * burgerAmount;
+  });
+
+  $(".main__cart-total-price").innerText = `${totalPrice.toLocaleString()}원`;
+}
+
+function addAnimation() {
+  const cart = $(".main__cart");
+
+  cart.classList.add("bounce");
+}
+
 // 취소하기 누르면 카트 비우기
 function emptyAllInCart() {
   while (cartListWrapper.hasChildNodes()) {
@@ -71,23 +98,6 @@ function showModal() {
 function closeModal() {
   const orderModal = $(".modal");
   orderModal.classList.add("hide");
-}
-// 누적금액
-function calculateAmount() {
-  const cartLists = $All(".main__cart-list");
-  let totalPrice = 0;
-
-  cartLists.forEach((cartList) => {
-    const burgerPrice = parsePriceToNumber(
-      cartList.querySelector(".main__cart-list-price").innerText
-    );
-    const burgerAmount = cartList.querySelector(
-      ".main__cart-list-amount"
-    ).value;
-    totalPrice += burgerPrice * burgerAmount;
-  });
-
-  $(".main__cart-total-price").innerText = `${totalPrice.toLocaleString()}원`;
 }
 
 /*----------- */
@@ -136,7 +146,3 @@ window.onload = () => {
     closeButton: $(".modal__closeBtn"),
   });
 };
-
-// 구현해야될거
-// 2. 계산되는 거
-//   - 갯수 * 가격
