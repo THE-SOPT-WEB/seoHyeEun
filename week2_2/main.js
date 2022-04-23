@@ -4,6 +4,11 @@ const cartListWrapper = $(".main__cart-list-wrapper");
 
 let burgersInCart = [];
 
+const parsePriceToNumber = (price) => {
+  const removedComma = price.slice(0, -1).replace(/\D/g, "");
+  return +removedComma;
+};
+
 // 버거 카드를 눌렀을 때
 function addBurgerToCart(burgerName, burgerPrice) {
   const targetBurgerName = burgerName;
@@ -15,6 +20,7 @@ function addBurgerToCart(burgerName, burgerPrice) {
   } else {
     addExistBurgerToCart(targetBurgerName);
   }
+  calculateAmount();
 }
 
 // 새로운 버거 추가했을 때 t=
@@ -44,10 +50,12 @@ function emptyAllInCart() {
   while (cartListWrapper.hasChildNodes()) {
     cartListWrapper.removeChild(cartListWrapper.firstChild);
   }
+  calculateAmount();
 }
 // 삭제버튼 누르면 해당요소 삭제
 function deleteBurgerFromCart(e) {
   e.currentTarget.closest("li").remove();
+  calculateAmount();
 }
 
 // 모달띄우기
@@ -55,12 +63,32 @@ function showModal() {
   const orderModal = $(".modal");
   orderModal.classList.remove("hide");
 }
-
+// 모달 닫기
 function closeModal() {
   const orderModal = $(".modal");
   orderModal.classList.add("hide");
 }
+// 누적금액
+function calculateAmount() {
+  const cartLists = $All(".main__cart-list");
+  let totalPrice = 0;
 
+  cartLists.forEach((cartList) => {
+    const burgerPrice = parsePriceToNumber(
+      cartList.querySelector(".main__cart-list-price").innerText
+    );
+    const burgerAmount = cartList.querySelector(
+      ".main__cart-list-amount"
+    ).value;
+    totalPrice += burgerPrice * burgerAmount;
+  });
+
+  $(".main__cart-total-price").innerText = `${totalPrice.toLocaleString()}원`;
+}
+
+/*----------- */
+
+// 이벤트 붙이기
 function attachEvent({
   burgerCardNodeList,
   emptyCartButton,
@@ -106,7 +134,5 @@ window.onload = () => {
 };
 
 // 구현해야될거
-// 1. 이미 존재하는 카드를 눌렀을 때 갯수가 늘어나도록
-//   - 만약 선택한 카드의 이름과 리스트의 이름에 같은 이름이 있다면 갯수를 늘이기
 // 2. 계산되는 거
 //   - 갯수 * 가격

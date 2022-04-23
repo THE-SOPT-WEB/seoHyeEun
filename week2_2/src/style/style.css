@@ -166,7 +166,6 @@ main {
 .main__cart-orderBtn,
 .main__cart-cancelBtn {
   font-family: "Cafe24Ohsquareair";
-  cursor: pointer;
   border-radius: 8px;
   padding: 5px;
   background-color: lemonchiffon;
@@ -195,10 +194,6 @@ main {
 
 .main__cart-list-amount {
   width: 30px;
-}
-
-.main__cart-list-deleteBtn {
-  cursor: pointer;
 }
 
 /*modal*/
