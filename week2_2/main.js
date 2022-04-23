@@ -37,7 +37,9 @@ function addNewBurgerToCart(targetBurgerName, targetBurgerPrice) {
 
   cartList
     .querySelector("button.main__cart-list-deleteBtn")
-    .addEventListener("click", (e) => deleteBurgerFromCart(e));
+    .addEventListener("click", (e, targetBurgerName) =>
+      deleteBurgerFromCart(e, targetBurgerName)
+    );
 }
 
 // 이미 존재하는 요소 추가했을 때 수량 증가
@@ -49,12 +51,14 @@ function addExistBurgerToCart(targetBurgerName) {
 function emptyAllInCart() {
   while (cartListWrapper.hasChildNodes()) {
     cartListWrapper.removeChild(cartListWrapper.firstChild);
+    burgersInCart.length = 0;
   }
   calculateAmount();
 }
 // 삭제버튼 누르면 해당요소 삭제
-function deleteBurgerFromCart(e) {
+function deleteBurgerFromCart(e, targetBurgerName) {
   e.currentTarget.closest("li").remove();
+  burgersInCart.splice(targetBurgerName);
   calculateAmount();
 }
 
