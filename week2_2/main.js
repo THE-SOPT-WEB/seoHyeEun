@@ -2,13 +2,28 @@ const $ = (selector) => document.querySelector(selector);
 const $All = (selector) => document.querySelectorAll(selector);
 const cartListWrapper = $(".main__cart-list-wrapper");
 
-function addBurgerToCart(targetBurgerName, targetBurgerPrice) {
-  const cartList = document.createElement("li");
+let burgersInCart = [];
 
+// 버거 카드를 눌렀을 때
+function addBurgerToCart(burgerName, burgerPrice) {
+  const targetBurgerName = burgerName;
+  const targetBurgerPrice = burgerPrice;
+
+  if (!burgersInCart.includes(targetBurgerName)) {
+    burgersInCart.push(targetBurgerName);
+    addNewBurgerToCart(targetBurgerName, targetBurgerPrice);
+  } else {
+    addExistBurgerToCart(targetBurgerName);
+  }
+}
+
+// 새로운 버거 추가했을 때 t=
+function addNewBurgerToCart(targetBurgerName, targetBurgerPrice) {
+  const cartList = document.createElement("li");
   cartList.classList.add("main__cart-list");
   cartList.innerHTML = `
     <strong class="main__cart-list-name">${targetBurgerName}</strong>
-    <input type="number" value="1" min="1" class="main__cart-list-amount"/>
+    <input type="number" value="1" min="1" class="main__cart-list-amount main__${targetBurgerName}-amount"/>
     <p class="main__cart-list-price">${targetBurgerPrice}</p>
     <button type="button" class="main__cart-list-deleteBtn">❌</button>
   `;
@@ -19,6 +34,12 @@ function addBurgerToCart(targetBurgerName, targetBurgerPrice) {
     .addEventListener("click", (e) => deleteBurgerFromCart(e));
 }
 
+// 이미 존재하는 요소 추가했을 때 수량 증가
+function addExistBurgerToCart(targetBurgerName) {
+  $(`.main__${targetBurgerName}-amount`).value++;
+}
+
+// 취소하기 누르면 카트 비우기
 function emptyAllInCart() {
   while (cartListWrapper.hasChildNodes()) {
     cartListWrapper.removeChild(cartListWrapper.firstChild);
@@ -83,3 +104,9 @@ window.onload = () => {
     closeButton: $(".modal__closeBtn"),
   });
 };
+
+// 구현해야될거
+// 1. 이미 존재하는 카드를 눌렀을 때 갯수가 늘어나도록
+//   - 만약 선택한 카드의 이름과 리스트의 이름에 같은 이름이 있다면 갯수를 늘이기
+// 2. 계산되는 거
+//   - 갯수 * 가격
