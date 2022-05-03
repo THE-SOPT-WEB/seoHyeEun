@@ -26,10 +26,21 @@ export const GameSection = styled.section`
     width: 50%;
     height: auto;
     cursor: pointer;
+    position: relative;
 
-    & > img {
+    img {
       width: 100%;
-      overflow: hidden;
+    }
+    div {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      font-size: 5rem;
+      color: white;
+      transform: translate(-50%, -50%);
+      text-shadow: -0.2rem 0 black, 0 0.2rem black, 0.2rem 0 black,
+        0 -0.2rem black;
+      font-style: italic;
     }
   }
 `;

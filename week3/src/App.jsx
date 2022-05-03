@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { StyledRoot, GameTitle, GameRound, GameSection } from "./style";
 import baekHyun from "@/assets/image/변백현.jpg";
 import seHun from "@/assets/image/오세훈.jpg";
@@ -14,12 +14,16 @@ function App() {
   ];
 
   const [round, setRound] = useState("준결승");
-  // const matchWinners = useRef([]);
+  const matchWinners = useRef([]);
   const [fighterList, setFighterList] = useState(gameInfo);
 
-  const getWinner = (e) => {
-    // matchWinners.push(e.target.value);
-    fighterList.splice(0, 2);
+  const getSelectWinner = (pos) => {
+    matchWinners.current.push(fighterList[pos]);
+    setFighterList(fighterList.slice(2));
+
+    if (fighterList.length == 0) {
+      setFighterList(matchWinners.current);
+    }
   };
 
   return (
@@ -27,11 +31,13 @@ function App() {
       <GameTitle>내가 사랑하는 남성 월드컵 {round}</GameTitle>
       <GameRound>1/2</GameRound>
       <GameSection>
-        <article onClick={getWinner}>
+        <article onClick={() => getSelectWinner(0)}>
           <img src={fighterList[0].img} />
+          <div>{fighterList[0].name}</div>
         </article>
-        <article onClick={getWinner}>
+        <article onClick={() => getSelectWinner(1)}>
           <img src={fighterList[1].img} />
+          <div>{fighterList[1].name}</div>
         </article>
       </GameSection>
     </StyledRoot>
