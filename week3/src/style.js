@@ -4,7 +4,6 @@ export const StyledRoot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background-color: lavender;
   height: 100%;
 `;
@@ -29,9 +28,11 @@ export const GameSection = styled.section`
     height: auto;
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
 
     img {
-      width: 100%;
+      width: 80%;
     }
     div {
       position: absolute;

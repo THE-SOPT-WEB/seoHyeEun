@@ -18,6 +18,14 @@ function App() {
   const [fighterList, setFighterList] = useState(gameInfo);
   const [gameEnd, setGameEnd] = useState(false);
 
+  const countRoundNum = () => {
+    return matchWinners.current.length + 1;
+  };
+
+  const totalRoundNum = () => {
+    return Math.ceil((fighterList.length + matchWinners.current.length) / 2);
+  };
+
   const getSelectWinner = (pos) => {
     matchWinners.current.push(fighterList[pos]);
     setFighterList(fighterList.slice(2));
@@ -37,7 +45,9 @@ function App() {
     return (
       <StyledRoot>
         <GameTitle>내가 사랑하는 남성 월드컵 {round}</GameTitle>
-        <GameRound>1/2</GameRound>
+        <GameRound>
+          {countRoundNum()}/{totalRoundNum()}
+        </GameRound>
         <GameSection>
           {fighterList.map((fighter, index) => {
             if (index < 2) {
