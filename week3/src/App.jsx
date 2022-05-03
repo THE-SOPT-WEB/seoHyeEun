@@ -16,6 +16,7 @@ function App() {
   const [round, setRound] = useState("준결승");
   const matchWinners = useRef([]);
   const [fighterList, setFighterList] = useState(gameInfo);
+  const [gameEnd, setGameEnd] = useState(false);
 
   const getSelectWinner = (pos) => {
     matchWinners.current.push(fighterList[pos]);
@@ -27,28 +28,45 @@ function App() {
     if (fighterList.length === 0 && matchWinners.current.length >= 2) {
       setFighterList(matchWinners.current);
       setRound("결승");
+      matchWinners.current = [];
     } else if (fighterList.length === 0 && matchWinners.current.length === 1) {
+      setGameEnd(true);
     }
   });
-
-  return (
-    <StyledRoot>
-      <GameTitle>내가 사랑하는 남성 월드컵 {round}</GameTitle>
-      <GameRound>1/2</GameRound>
-      <GameSection>
-        {fighterList.map((fighter, index) => {
-          if (index < 2) {
-            return (
-              <article onClick={() => getSelectWinner(index)}>
-                <img src={fighter.img} />
-                <div>{fighter.name}</div>
-              </article>
-            );
-          }
-        })}
-      </GameSection>
-    </StyledRoot>
-  );
+  if (!gameEnd) {
+    return (
+      <StyledRoot>
+        <GameTitle>내가 사랑하는 남성 월드컵 {round}</GameTitle>
+        <GameRound>1/2</GameRound>
+        <GameSection>
+          {fighterList.map((fighter, index) => {
+            if (index < 2) {
+              return (
+                <article onClick={() => getSelectWinner(index)}>
+                  <img src={fighter.img} />
+                  <div>{fighter.name}</div>
+                </article>
+              );
+            }
+          })}
+        </GameSection>
+      </StyledRoot>
+    );
+  } else {
+    return (
+      <StyledRoot>
+        <GameTitle>
+          내가 가장 사랑하는 남성은 {matchWinners.current[0].name}
+        </GameTitle>
+        <GameSection>
+          <article>
+            <img src={matchWinners.current[0].img} />
+            <div>{matchWinners.current[0].name}</div>
+          </article>
+        </GameSection>
+      </StyledRoot>
+    );
+  }
 }
 
 export default App;

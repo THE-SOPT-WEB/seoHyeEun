@@ -23,6 +23,7 @@ export const GameRound = styled.div`
 
 export const GameSection = styled.section`
   display: flex;
+  justify-content: center;
   article {
     width: 50%;
     height: auto;
