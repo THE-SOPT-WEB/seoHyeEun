@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "HaenamFont";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/HaenamFont.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "HaenamFont";
+}
+
+/*px to rem*/
+html {
+  font-size: 62.5%;
+}
