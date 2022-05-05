@@ -1,19 +1,27 @@
 import { useState, useRef, useEffect } from "react";
 import { StyledRoot, GameTitle, GameRound, GameSection } from "./style";
-import baekHyun from "@/assets/image/변백현.jpg";
+import jongIn from "@/assets/image/김종인.jpg";
 import seHun from "@/assets/image/오세훈.jpg";
-import dongHyuk from "@/assets/image/이동혁.jpg";
+import baekHyun from "@/assets/image/변백현.jpg";
+import junMyeon from "@/assets/image/김준면.jpg";
 import jaeHyun from "@/assets/image/정재현.jpg";
+import doYoung from "@/assets/image/김도영.jpg";
+import jungWoo from "@/assets/image/김정우.jpg";
+import dongHyuk from "@/assets/image/이동혁.jpg";
 
 function App() {
   const gameInfo = [
-    { img: baekHyun, name: "변백현" },
+    { img: jongIn, name: "김종인" },
     { img: seHun, name: "오세훈" },
-    { img: dongHyuk, name: "이동혁" },
+    { img: baekHyun, name: "변백현" },
+    { img: junMyeon, name: "김준면" },
     { img: jaeHyun, name: "정재현" },
+    { img: doYoung, name: "김도영" },
+    { img: jungWoo, name: "김정우" },
+    { img: dongHyuk, name: "이동혁" },
   ];
 
-  const [round, setRound] = useState("준결승");
+  const [round, setRound] = useState("8강");
   const matchWinners = useRef([]);
   const [fighterList, setFighterList] = useState(gameInfo);
   const [gameEnd, setGameEnd] = useState(false);
@@ -23,7 +31,9 @@ function App() {
   };
 
   const totalRoundNum = () => {
-    return Math.ceil((fighterList.length + matchWinners.current.length) / 2);
+    return Math.ceil(
+      (fighterList.length + matchWinners.current.length * 2) / 2
+    );
   };
 
   const getSelectWinner = (pos) => {
@@ -32,8 +42,11 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(fighterList, matchWinners.current);
-    if (fighterList.length === 0 && matchWinners.current.length >= 2) {
+    if (fighterList.length === 0 && matchWinners.current.length >= 4) {
+      setFighterList(matchWinners.current);
+      setRound("4강");
+      matchWinners.current = [];
+    } else if (fighterList.length === 0 && matchWinners.current.length >= 2) {
       setFighterList(matchWinners.current);
       setRound("결승");
       matchWinners.current = [];
@@ -41,7 +54,9 @@ function App() {
       setGameEnd(true);
     }
   });
+
   if (!gameEnd) {
+    console.log(fighterList.length, matchWinners.current.length);
     return (
       <StyledRoot>
         <GameTitle>내가 사랑하는 남성 월드컵 {round}</GameTitle>

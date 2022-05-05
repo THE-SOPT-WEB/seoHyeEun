@@ -32,7 +32,7 @@ export const GameSection = styled.section`
     justify-content: center;
 
     img {
-      width: 80%;
+      width: 90%;
     }
     div {
       position: absolute;
