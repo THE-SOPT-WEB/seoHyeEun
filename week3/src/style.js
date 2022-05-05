@@ -6,6 +6,7 @@ export const StyledRoot = styled.div`
   align-items: center;
   background-color: lavender;
   height: 100%;
+  position: relative;
 `;
 
 export const GameTitle = styled.header`
@@ -23,6 +24,7 @@ export const GameRound = styled.div`
 export const GameSection = styled.section`
   display: flex;
   justify-content: center;
+  width: 78rem;
   article {
     width: 50%;
     height: auto;
@@ -43,7 +45,20 @@ export const GameSection = styled.section`
       transform: translate(-50%, -50%);
       text-shadow: -0.2rem 0 black, 0 0.2rem black, 0.2rem 0 black,
         0 -0.2rem black;
-      font-style: italic;
     }
+  }
+
+  p {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 10rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: -0.4rem 0 purple, 0 0.2rem purple, 0.2rem 0 purple,
+      0 -0.2rem purple;
+    font-style: italic;
   }
 `;

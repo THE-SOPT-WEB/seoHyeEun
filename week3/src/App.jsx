@@ -74,6 +74,7 @@ function App() {
               );
             }
           })}
+          <p>VS</p>
         </GameSection>
       </StyledRoot>
     );
