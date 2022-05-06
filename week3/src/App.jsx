@@ -15,6 +15,14 @@ import jaeHyun from "@/assets/image/정재현.jpg";
 import doYoung from "@/assets/image/김도영.jpg";
 import jungWoo from "@/assets/image/김정우.jpg";
 import dongHyuk from "@/assets/image/이동혁.jpg";
+import jiYong from "@/assets/image/권지용.jpg";
+import jaeMin from "@/assets/image/나재민.jpg";
+import jeNo from "@/assets/image/이제노.jpg";
+import eunWoo from "@/assets/image/차은우.jpg";
+import jungHan from "@/assets/image/윤정한.jpg";
+import hoShi from "@/assets/image/권호시.jpg";
+import kyoungSoo from "@/assets/image/도경수.jpg";
+import minHyung from "@/assets/image/이민형.jpg";
 
 function App() {
   // 월드컵 참여자들 배열
@@ -27,11 +35,19 @@ function App() {
     { img: doYoung, name: "김도영" },
     { img: jungWoo, name: "김정우" },
     { img: dongHyuk, name: "이동혁" },
+    { img: jiYong, name: "권지용" },
+    { img: jaeMin, name: "나재민" },
+    { img: jeNo, name: "이제노" },
+    { img: eunWoo, name: "차은우" },
+    { img: jungHan, name: "윤정한" },
+    { img: hoShi, name: "권호시" },
+    { img: kyoungSoo, name: "도경수" },
+    { img: minHyung, name: "이민형" },
   ];
   // 배열 랜덤으로 재정렬
   const randomGameInfo = gameInfo.sort(() => Math.random() - 0.5);
 
-  const [round, setRound] = useState("8강");
+  const [round, setRound] = useState("16강");
   const matchWinners = useRef([]);
   const [fighterList, setFighterList] = useState(randomGameInfo);
   const [gameEnd, setGameEnd] = useState(false);
@@ -56,10 +72,15 @@ function App() {
     setGameEnd(false);
     matchWinners.current = [];
     setFighterList(randomGameInfo);
+    setRound("16강");
   };
   // 화면이 리렌더링 될 때 마다 참가자들 배열과 승리자들 배열 확인
   useEffect(() => {
-    if (fighterList.length === 0 && matchWinners.current.length >= 4) {
+    if (fighterList.length === 0 && matchWinners.current.length >= 8) {
+      setFighterList(matchWinners.current);
+      setRound("8강");
+      matchWinners.current = [];
+    } else if (fighterList.length === 0 && matchWinners.current.length >= 4) {
       setFighterList(matchWinners.current);
       setRound("4강");
       matchWinners.current = [];
