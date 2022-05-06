@@ -65,8 +65,14 @@ export const GameSection = styled.section`
 export const WinnerSection = styled.section`
   display: flex;
   justify-content: center;
+  position: relative;
+  p {
+    position: absolute;
+    z-index: 999;
+    font-size: 8rem;
+  }
   article {
-    width: 50%;
+    width: 35rem;
     cursor: pointer;
     position: relative;
     display: flex;

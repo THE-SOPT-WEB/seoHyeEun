@@ -101,6 +101,7 @@ function App() {
           내가 가장 사랑하는 남성은 {matchWinners.current[0].name}
         </GameTitle>
         <WinnerSection>
+          <p>👑</p>
           <article>
             <img src={matchWinners.current[0].img} />
             <div>{matchWinners.current[0].name}</div>
