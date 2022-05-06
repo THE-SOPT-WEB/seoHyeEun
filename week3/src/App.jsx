@@ -5,6 +5,7 @@ import {
   GameRound,
   GameSection,
   GameResetButton,
+  WinnerSection,
 } from "./style";
 import jongIn from "@/assets/image/김종인.jpg";
 import seHun from "@/assets/image/오세훈.jpg";
@@ -99,12 +100,12 @@ function App() {
         <GameTitle>
           내가 가장 사랑하는 남성은 {matchWinners.current[0].name}
         </GameTitle>
-        <GameSection>
+        <WinnerSection>
           <article>
             <img src={matchWinners.current[0].img} />
             <div>{matchWinners.current[0].name}</div>
           </article>
-        </GameSection>
+        </WinnerSection>
         <GameResetButton onClick={playAgain}>다시하기</GameResetButton>
       </StyledRoot>
     );

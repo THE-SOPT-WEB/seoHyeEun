@@ -5,7 +5,7 @@ export const StyledRoot = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: lavender;
-  height: 100%;
+  height: 100vh;
   position: relative;
 `;
 
@@ -24,17 +24,17 @@ export const GameRound = styled.div`
 export const GameSection = styled.section`
   display: flex;
   justify-content: center;
-  width: 78rem;
+  height: 80%;
   article {
-    width: 50%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     position: relative;
     display: flex;
     justify-content: center;
 
     img {
-      width: 90%;
+      width: 100%;
     }
     div {
       position: absolute;
@@ -62,10 +62,36 @@ export const GameSection = styled.section`
   }
 `;
 
+export const WinnerSection = styled.section`
+  display: flex;
+  justify-content: center;
+  article {
+    width: 50%;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 100%;
+    }
+    div {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      font-size: 5rem;
+      color: white;
+      transform: translate(-50%, -50%);
+      text-shadow: -0.2rem 0 black, 0 0.2rem black, 0.2rem 0 black,
+        0 -0.2rem black;
+    }
+  }
+`;
+
 export const GameResetButton = styled.button`
   width: 12rem;
   font-size: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   padding: 1rem;
   cursor: pointer;
   color: purple;
