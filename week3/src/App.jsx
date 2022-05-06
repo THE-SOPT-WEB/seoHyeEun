@@ -28,10 +28,12 @@ function App() {
     { img: jungWoo, name: "김정우" },
     { img: dongHyuk, name: "이동혁" },
   ];
+  // 배열 랜덤으로 재정렬
+  const randomGameInfo = gameInfo.sort(() => Math.random() - 0.5);
 
   const [round, setRound] = useState("8강");
   const matchWinners = useRef([]);
-  const [fighterList, setFighterList] = useState(gameInfo);
+  const [fighterList, setFighterList] = useState(randomGameInfo);
   const [gameEnd, setGameEnd] = useState(false);
 
   // 현재 몇 라운드인지
@@ -53,7 +55,7 @@ function App() {
   const playAgain = () => {
     setGameEnd(false);
     matchWinners.current = [];
-    setFighterList(gameInfo);
+    setFighterList(randomGameInfo);
   };
   // 화면이 리렌더링 될 때 마다 참가자들 배열과 승리자들 배열 확인
   useEffect(() => {
