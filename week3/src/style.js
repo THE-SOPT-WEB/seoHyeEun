@@ -49,7 +49,7 @@ export const GameSection = styled.section`
   }
   p {
     position: absolute;
-    top: 60%;
+    top: 57%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -62,4 +62,18 @@ export const GameSection = styled.section`
   }
 `;
 
-const GameResetButton = styled.button``;
+export const GameResetButton = styled.button`
+  width: 12rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+  color: purple;
+  font-weight: bold;
+  border: 0.2rem solid purple;
+  border-radius: 20rem;
+
+  :hover {
+    background-color: gold;
+  }
+`;

@@ -16,6 +16,7 @@ import jungWoo from "@/assets/image/김정우.jpg";
 import dongHyuk from "@/assets/image/이동혁.jpg";
 
 function App() {
+  // 월드컵 참여자들 배열
   const gameInfo = [
     { img: jongIn, name: "김종인" },
     { img: seHun, name: "오세훈" },
@@ -32,25 +33,28 @@ function App() {
   const [fighterList, setFighterList] = useState(gameInfo);
   const [gameEnd, setGameEnd] = useState(false);
 
+  // 현재 몇 라운드인지
   const countRoundNum = () => {
     return matchWinners.current.length + 1;
   };
-
+  // 이번 강에는 총 몇 번의 라운드가 있는지
   const totalRoundNum = () => {
     return Math.ceil(
       (fighterList.length + matchWinners.current.length * 2) / 2
     );
   };
-
+  // 승자를 골랐을 때
   const getSelectWinner = (pos) => {
     matchWinners.current.push(fighterList[pos]);
     setFighterList(fighterList.slice(2));
   };
-
+  // 다시 게임을 시작하는 함수
   const playAgain = () => {
     setGameEnd(false);
+    matchWinners.current = [];
+    setFighterList(gameInfo);
   };
-
+  // 화면이 리렌더링 될 때 마다 참가자들 배열과 승리자들 배열 확인
   useEffect(() => {
     if (fighterList.length === 0 && matchWinners.current.length >= 4) {
       setFighterList(matchWinners.current);
@@ -66,7 +70,7 @@ function App() {
   });
 
   if (!gameEnd) {
-    console.log(fighterList.length, matchWinners.current.length);
+    // 게임이 끝나지 않았다면
     return (
       <StyledRoot>
         <GameTitle>내가 사랑하는 남성 월드컵 {round}</GameTitle>
@@ -89,6 +93,7 @@ function App() {
       </StyledRoot>
     );
   } else {
+    // 게임이 끝났다면
     return (
       <StyledRoot>
         <GameTitle>
@@ -100,7 +105,7 @@ function App() {
             <div>{matchWinners.current[0].name}</div>
           </article>
         </GameSection>
-        <GameResetButton onClick={playAgain()}>다시하기</GameResetButton>
+        <GameResetButton onClick={playAgain}>다시하기</GameResetButton>
       </StyledRoot>
     );
   }
