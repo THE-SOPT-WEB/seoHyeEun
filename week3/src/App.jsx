@@ -1,5 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import { StyledRoot, GameTitle, GameRound, GameSection } from "./style";
+import {
+  StyledRoot,
+  GameTitle,
+  GameRound,
+  GameSection,
+  GameResetButton,
+} from "./style";
 import jongIn from "@/assets/image/김종인.jpg";
 import seHun from "@/assets/image/오세훈.jpg";
 import baekHyun from "@/assets/image/변백현.jpg";
@@ -39,6 +45,10 @@ function App() {
   const getSelectWinner = (pos) => {
     matchWinners.current.push(fighterList[pos]);
     setFighterList(fighterList.slice(2));
+  };
+
+  const playAgain = () => {
+    setGameEnd(false);
   };
 
   useEffect(() => {
@@ -90,6 +100,7 @@ function App() {
             <div>{matchWinners.current[0].name}</div>
           </article>
         </GameSection>
+        <GameResetButton onClick={playAgain()}>다시하기</GameResetButton>
       </StyledRoot>
     );
   }

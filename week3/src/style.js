@@ -47,7 +47,6 @@ export const GameSection = styled.section`
         0 -0.2rem black;
     }
   }
-
   p {
     position: absolute;
     top: 60%;
@@ -62,3 +61,5 @@ export const GameSection = styled.section`
     font-style: italic;
   }
 `;
+
+const GameResetButton = styled.button``;
