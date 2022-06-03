@@ -1,4 +1,7 @@
 export const theme = {
+  center: `display: flex; 
+           justify-content: center; 
+           align-items: center;`,
   fontSizes: {
     form: '40px',
     searchTitle: '34px',

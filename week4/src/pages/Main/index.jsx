@@ -1,18 +1,19 @@
+import HeaderSection from '../../components/HeaderSection';
+import ListSection from '../../components/ListSection';
+import SearchSection from '../../components/SearchSection';
+
 function Main() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleIsLoading = _isLoading => {
+    setIsLoading(_isLoading);
+  };
+
   return (
     <StyledRoot>
-      <Header>우리 동네 맥주집</Header>
-      <SearchSection>
-        <LocalSearch>
-          <p>지역기반으로 검색할게요</p>
-          <input type="checkbox" />
-        </LocalSearch>
-        <WantSearch>
-          <p>우리 동네는 여기에요</p>
-          <input type="search" />
-          <button type="submit">검색하기</button>
-        </WantSearch>
-      </SearchSection>
+      <HeaderSection />
+      <SearchSection handleIsLoading={handleIsLoading} />
+      <ListSection isLoading={isLoading} />
     </StyledRoot>
   );
 }
