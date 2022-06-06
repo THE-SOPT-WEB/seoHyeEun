@@ -4,16 +4,21 @@ import SearchSection from '../../components/SearchSection';
 
 function Main() {
   const [isLoading, setIsLoading] = useState(false);
+  const [resultLists, setResultLists] = useState([]);
 
   const handleIsLoading = _isLoading => {
     setIsLoading(_isLoading);
   };
 
+  const handleResultLists = newResultList => {
+    setResultLists(newResultList);
+  };
+
   return (
     <StyledRoot>
       <HeaderSection />
-      <SearchSection handleIsLoading={handleIsLoading} />
-      <ListSection isLoading={isLoading} />
+      <SearchSection handleResultLists={handleResultLists} handleIsLoading={handleIsLoading} />
+      <ListSection resultLists={resultLists} isLoading={isLoading} />
     </StyledRoot>
   );
 }
