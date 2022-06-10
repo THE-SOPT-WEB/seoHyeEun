@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { flexColumnCenter } from '../../mixxin';
 import React, { useState } from 'react';
 import Header from '../../components/Header.jsx';
+import ResultSection from '../../components/ResultSection';
 
 function Main() {
   const [results, setResults] = useState([]);
@@ -18,7 +19,9 @@ function Main() {
     <Styled.Root>
       {/* Header에 뭐를 props로 내려주고 있나요? */}
       <Header handleIsSearch={handleIsSearch} handleResults={handleResults} />
-      <Styled.SectionWrapper>hi{/* <ResultSection isSearch={isSearch} results={results} /> */}</Styled.SectionWrapper>
+      <Styled.SectionWrapper>
+        <ResultSection isSearch={isSearch} results={results} />
+      </Styled.SectionWrapper>
     </Styled.Root>
   );
 }
@@ -32,6 +35,8 @@ const Styled = {
     height: 100%;
     overflow: hidden;
     font-size: 5rem;
+    background-color: lemonchiffon;
+
     & h1 {
       margin-top: 2rem;
     }
