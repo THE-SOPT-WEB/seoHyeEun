@@ -17,6 +17,9 @@ ${reset}
   background-position: center;
   background-size: auto;
 }
+html {
+    font-size: 62.5%;
+}
 * {
    
     box-sizing: border-box;
