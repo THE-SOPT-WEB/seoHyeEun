@@ -1,26 +1,44 @@
-import HeaderSection from '../../components/HeaderSection';
-import ListSection from '../../components/ListSection';
-import SearchSection from '../../components/SearchSection';
+import styled from 'styled-components';
+import { flexColumnCenter } from '../../mixxin';
+import React, { useState } from 'react';
 
 function Main() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [resultLists, setResultLists] = useState([]);
+  const [results, setResults] = useState([]);
+  const [isSearch, setIsSearch] = useState(false);
 
-  const handleIsLoading = _isLoading => {
-    setIsLoading(_isLoading);
+  const handleResults = newResults => {
+    setResults(newResults);
   };
-
-  const handleResultLists = newResultList => {
-    setResultLists(newResultList);
+  const handleIsSearch = newIsSearch => {
+    setIsSearch(newIsSearch);
   };
 
   return (
-    <StyledRoot>
-      <HeaderSection />
-      <SearchSection handleResultLists={handleResultLists} handleIsLoading={handleIsLoading} />
-      <ListSection resultLists={resultLists} isLoading={isLoading} />
-    </StyledRoot>
+    <Styled.Root>
+      <Header handleIsSearch={handleIsSearch} handleResults={handleResults} />
+      <Styled.SectionWrapper>
+        <ResultSection isSearch={isSearch} results={results} />
+      </Styled.SectionWrapper>
+    </Styled.Root>
   );
 }
 
 export default Main;
+
+const Styled = {
+  Root: styled.main`
+    ${flexColumnCenter}
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 70px;
+    & h1 {
+      margin-top: 2rem;
+    }
+  `,
+  SectionWrapper: styled.div`
+    ${flexColumnCenter}
+    width: 100%;
+    height: 100%;
+  `,
+};
