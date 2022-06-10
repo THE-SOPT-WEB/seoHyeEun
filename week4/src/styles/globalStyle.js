@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-import backBread from '../assets/images/backBread.png';
-
 const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: 'ParkYongJun';
@@ -15,7 +13,6 @@ ${reset}
     width: 100%;
     height: auto;
     font-family: 'ParkYongJun';
-background: url(${backBread});
   background-repeat: repeat;
   background-position: center;
   background-size: auto;
