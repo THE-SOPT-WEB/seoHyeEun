@@ -11,7 +11,7 @@ function ResultSection(props) {
   return results.map(result => (
     <StoreArticle
       key={result.id}
-      placeUrl={result.place.url}
+      placeUrl={result.place_url}
       placeName={result.place_name}
       roadAddressName={result.road_address_name}
       distance={result.distance}

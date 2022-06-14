@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StyledRoot, StoreName, StoreAddress, StorePhoneNumber } from './articleStyle';
 
 const StoreArticle = props => {
   return (
@@ -14,11 +14,3 @@ const StoreArticle = props => {
 };
 
 export default StoreArticle;
-
-const StyledRoot = styled.article`
-  font-size: 1.5rem;
-`;
-
-const StoreName = styled.a``;
-const StoreAddress = styled.p``;
-const StorePhoneNumber = styled.p``;
