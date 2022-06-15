@@ -2,7 +2,7 @@ import MainHeader from "@/component/common/MainHeader";
 import Tournament from "@/component/common/Tournament";
 import styled from "styled-components";
 
-export default function Main() {
+export default function Complete() {
     return (
         <StyledRoot>
             <MainHeader />
