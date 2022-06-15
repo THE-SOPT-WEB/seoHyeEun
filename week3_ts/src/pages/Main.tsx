@@ -1,12 +1,44 @@
-import MainHeader from "@/component/common/MainHeader";
-import Tournament from "@/component/common/Tournament";
+import { handsomeGuys, HandsomeGuy } from "@/assets/images";
+import MainHeader from "@/component/MainHeader";
+import Tournament from "@/component/Tournament";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Main() {
+    // 배열 랜덤으로 재정렬
+    const randomGameInfo: HandsomeGuy[] = handsomeGuys.sort(() => Math.random() - 0.5);
+
+    const [round, setRound] = useState<string>("16강");
+    const matchWinners = useRef<HandsomeGuy[]>([]);
+    const [fighterList, setFighterList] = useState<HandsomeGuy[]>(randomGameInfo);
+    const navigation = useNavigate();
+
+    const checkLists = (round: string) => {
+        setRound(round);
+        setFighterList(matchWinners.current);
+        matchWinners.current = [];
+    };
+
+    // 화면이 리렌더링 될 때 마다 참가자들 배열과 승리자들 배열 확인
+    fighterList.length === 0 &&
+        useEffect(() => {
+            if (matchWinners.current.length >= 8) checkLists("8강");
+            else if (matchWinners.current.length >= 4) checkLists("4강");
+            else if (matchWinners.current.length >= 2) checkLists("결승");
+            else if (matchWinners.current.length === 1) {
+                navigation("/complete", { state: {checkLists(), matchWinners} });
+            }
+        });
+
     return (
         <StyledRoot>
-            <MainHeader />
-            <Tournament />
+            <MainHeader round={round} matchWinners={matchWinners} fighterList={fighterList} />
+            <Tournament
+                matchWinners={matchWinners}
+                fighterList={fighterList}
+                setFighterList={setFighterList}
+            />
         </StyledRoot>
     );
 }
