@@ -30,7 +30,7 @@ export default function Main() {
             console.log(matchWinners.current[0]);
             navigation("/complete", {
                 // navigation에 값을 다중으로 넘겨주는 방법
-                state: { checkLists: checkLists("16강"), matchWinners: matchWinners },
+                state: { matchWinners },
             });
         }
     });

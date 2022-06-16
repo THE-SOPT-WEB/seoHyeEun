@@ -29,12 +29,12 @@ export default function MainHeader(props: MainHeaderProps) {
     );
 }
 
-export const GameTitle = styled.header`
+const GameTitle = styled.header`
     font-size: 4rem;
     margin: 2rem 0;
 `;
 
-export const GameRound = styled.div`
+const GameRound = styled.div`
     font-size: 4rem;
     margin: 1.5rem 0;
     color: purple;
