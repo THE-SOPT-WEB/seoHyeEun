@@ -34,10 +34,6 @@ export const handsomeGuys: HandsomeGuy[] = [
         url: baekHyun,
     },
     {
-        name: "김종인",
-        url: jongIn,
-    },
-    {
         name: "김준면",
         url: junMyeon,
     },
