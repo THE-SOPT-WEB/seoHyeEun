@@ -54,4 +54,5 @@ export const StyledRoot = styled.div`
     background-color: lavender;
     height: 100vh;
     position: relative;
+    font-family: "HaenamFont";
 `;
