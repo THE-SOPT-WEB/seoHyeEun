@@ -23,7 +23,7 @@ export default function Tournament(props: TournamentProps) {
             {fighterList.map((fighter, index) => {
                 if (index < 2) {
                     return (
-                        <article onClick={() => getSelectWinner(index)}>
+                        <article onClick={() => getSelectWinner(index)} key={index}>
                             <img src={fighter.url} />
                             <div>{fighter.name}</div>
                         </article>
