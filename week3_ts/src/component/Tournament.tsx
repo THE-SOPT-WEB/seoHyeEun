@@ -35,7 +35,7 @@ export default function Tournament(props: TournamentProps) {
     );
 }
 
-export const GameSection = styled.section`
+const GameSection = styled.section`
     display: flex;
     justify-content: center;
     height: 80%;

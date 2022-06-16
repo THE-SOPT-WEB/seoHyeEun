@@ -47,7 +47,7 @@ export default function Main() {
     );
 }
 
-export const StyledRoot = styled.div`
+const StyledRoot = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
