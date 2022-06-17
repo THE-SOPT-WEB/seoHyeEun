@@ -1,10 +1,10 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { flexColumnCenter } from "../../mixxin";
-import Header from "../../components/Header";
+import React, { useState } from "react";
+import Header from "../../components/Header.js";
 import ResultSection from "../../components/ResultSection";
 
-export default function Main() {
+function Main() {
     const [results, setResults] = useState([]);
     const [isSearch, setIsSearch] = useState(false);
 
@@ -25,6 +25,8 @@ export default function Main() {
         </Styled.Root>
     );
 }
+
+export default Main;
 
 const Styled = {
     Root: styled.main`

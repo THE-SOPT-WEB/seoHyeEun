@@ -1,4 +1,4 @@
-export const getLocation = (errHandler) => {
+const getLocation = (errHandler) => {
     if ("geolocation" in navigator) {
         return new Promise((resolve) => {
             navigator.geolocation.getCurrentPosition(

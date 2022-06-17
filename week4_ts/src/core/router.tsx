@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "../pages/Main";
 import NotFound from "../pages/NotFound";
 
-export default function router() {
+function Router() {
     return (
         <BrowserRouter>
             <Routes>
@@ -12,3 +12,4 @@ export default function router() {
         </BrowserRouter>
     );
 }
+export default Router;
