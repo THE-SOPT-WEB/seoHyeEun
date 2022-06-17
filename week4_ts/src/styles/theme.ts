@@ -1,20 +1,25 @@
-export const theme = {
-  center: `display: flex; 
-           justify-content: center; 
-           align-items: center;`,
-  fontSizes: {
-    form: '40px',
-    searchTitle: '34px',
-    input: '28px',
-    placeName: '40px',
-    roadAddressName: '30px',
-    phone: '30px',
-  },
-  colors: {
-    black: '#333333',
-    white: '#ffffff',
-    yellow: '#FFD951',
-    gray: '#6B7280',
-    skeleton: '#808080',
-  },
+import { DefaultTheme } from "styled-components";
+
+const fontSizes = {
+    form: "4rem",
+    searchTitle: "4rem",
+    input: "2.8rem",
+    placeName: "1.5rem",
+    roadAddressName: "1.5rem",
+    phone: "1.5rem",
 };
+
+const colors = {
+    black: "#333333",
+    white: "#ffffff",
+    lemonchiffon: "#fffacd",
+    gray: "#6B7280",
+    skeleton: "#808080",
+};
+
+const theme: DefaultTheme = {
+    fontSizes,
+    colors,
+};
+
+export default theme;
