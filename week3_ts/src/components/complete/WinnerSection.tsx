@@ -12,10 +12,10 @@ export default function WinnerSection(props: CompleteProps) {
     return (
         <StyledRoot>
             <p>👑</p>
-            <article>
-                <img src={matchWinners.current[0].url} />
-                <div>{matchWinners.current[0].name}</div>
-            </article>
+            <Winner.Info>
+                <Winner.Img src={matchWinners.current[0].url} />
+                <Winner.Name>{matchWinners.current[0].name}</Winner.Name>
+            </Winner.Info>
         </StyledRoot>
     );
 }
@@ -29,24 +29,27 @@ const StyledRoot = styled.section`
         z-index: 999;
         font-size: 8rem;
     }
-    article {
-        width: 35rem;
+`;
+
+const Winner = {
+    Info: styled.article`
+        width: 100%;
+        height: 100%;
         cursor: pointer;
         position: relative;
         display: flex;
         justify-content: center;
-
-        img {
-            width: 100%;
-        }
-        div {
-            position: absolute;
-            top: 75%;
-            left: 50%;
-            font-size: 5rem;
-            color: white;
-            transform: translate(-50%, -50%);
-            text-shadow: -0.2rem 0 black, 0 0.2rem black, 0.2rem 0 black, 0 -0.2rem black;
-        }
-    }
-`;
+    `,
+    Img: styled.img`
+        width: 100%;
+    `,
+    Name: styled.div`
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        font-size: 5rem;
+        color: white;
+        transform: translate(-50%, -50%);
+        text-shadow: -0.2rem 0 black, 0 0.2rem black, 0.2rem 0 black, 0 -0.2rem black;
+    `,
+};

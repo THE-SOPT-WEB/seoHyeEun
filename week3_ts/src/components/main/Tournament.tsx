@@ -23,10 +23,10 @@ export default function Tournament(props: TournamentProps) {
             {fighterList.map((fighter, index) => {
                 if (index < 2) {
                     return (
-                        <article onClick={() => getSelectWinner(index)} key={index}>
-                            <img src={fighter.url} />
-                            <div>{fighter.name}</div>
-                        </article>
+                        <Fighter.Info onClick={() => getSelectWinner(index)} key={index}>
+                            <Fighter.Img src={fighter.url} />
+                            <Fighter.Name>{fighter.name}</Fighter.Name>
+                        </Fighter.Info>
                     );
                 }
             })}
@@ -39,33 +39,12 @@ const GameSection = styled.section`
     display: flex;
     justify-content: center;
     height: 80%;
-    article {
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        position: relative;
-        display: flex;
-        justify-content: center;
 
-        img {
-            width: 100%;
-        }
-        div {
-            position: absolute;
-            top: 75%;
-            left: 50%;
-            font-size: 5rem;
-            color: white;
-            transform: translate(-50%, -50%);
-            text-shadow: -0.2rem 0 black, 0 0.2rem black, 0.2rem 0 black, 0 -0.2rem black;
-        }
-    }
     p {
         position: absolute;
         top: 57%;
         left: 50%;
         transform: translate(-50%, -50%);
-
         font-size: 10rem;
         font-weight: bold;
         color: #ffffff;
@@ -73,3 +52,26 @@ const GameSection = styled.section`
         font-style: italic;
     }
 `;
+
+const Fighter = {
+    Info: styled.article`
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    `,
+    Img: styled.img`
+        width: 100%;
+    `,
+    Name: styled.div`
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        font-size: 5rem;
+        color: white;
+        transform: translate(-50%, -50%);
+        text-shadow: -0.2rem 0 black, 0 0.2rem black, 0.2rem 0 black, 0 -0.2rem black;
+    `,
+};

@@ -27,13 +27,12 @@ export default function Main() {
         else if (fighterList.length === 0 && matchWinners.current.length >= 4) checkLists("4강");
         else if (fighterList.length === 0 && matchWinners.current.length >= 2) checkLists("결승");
         else if (fighterList.length === 0 && matchWinners.current.length === 1) {
-            console.log(matchWinners.current[0]);
             navigation("/complete", {
                 // navigation에 값을 다중으로 넘겨주는 방법
                 state: { matchWinners },
             });
         }
-    });
+    }, [fighterList, matchWinners.current]);
 
     return (
         <StyledRoot>
