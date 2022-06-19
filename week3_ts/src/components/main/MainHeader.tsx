@@ -1,4 +1,4 @@
-import { HandsomeGuy } from "@/assets/images";
+import { HandsomeGuy } from "@/core/handsomeGuys";
 import styled from "styled-components";
 
 interface MainHeaderProps {

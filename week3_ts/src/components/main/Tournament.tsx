@@ -1,5 +1,5 @@
-import { HandsomeGuy } from "@/assets/images";
-import { useEffect } from "react";
+import { HandsomeGuy } from "@/core/handsomeGuys";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 

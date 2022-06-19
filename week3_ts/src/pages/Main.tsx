@@ -1,6 +1,6 @@
-import { handsomeGuys, HandsomeGuy } from "@/assets/images";
-import MainHeader from "@/component/MainHeader";
-import Tournament from "@/component/Tournament";
+import { handsomeGuys, HandsomeGuy } from "@/core/handsomeGuys";
+import MainHeader from "@/components/main/MainHeader";
+import Tournament from "@/components/main/Tournament";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";

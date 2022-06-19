@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
-import { HandsomeGuy } from "@/assets/images";
-import WinnerSection from "@/component/WinnerSection";
+import { HandsomeGuy } from "@/core/handsomeGuys";
+import WinnerSection from "@/components/complete/WinnerSection";
 
 interface CompleteLocation {
     matchWinners: React.MutableRefObject<HandsomeGuy[]>;
