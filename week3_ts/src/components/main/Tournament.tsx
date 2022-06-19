@@ -1,4 +1,4 @@
-import { HandsomeGuy } from "@/core/handsomeGuys";
+import { handsomeGuyStyle } from "@/style/handsomeGuyStyle";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -7,6 +7,11 @@ interface TournamentProps {
     matchWinners: React.MutableRefObject<HandsomeGuy[]>;
     fighterList: HandsomeGuy[];
     setFighterList: React.Dispatch<React.SetStateAction<HandsomeGuy[]>>;
+}
+
+interface HandsomeGuy {
+    name: string;
+    url: string;
 }
 
 export default function Tournament(props: TournamentProps) {
@@ -20,15 +25,14 @@ export default function Tournament(props: TournamentProps) {
 
     return (
         <GameSection>
-            {fighterList.map((fighter, index) => {
-                if (index < 2) {
-                    return (
-                        <Fighter.Info onClick={() => getSelectWinner(index)} key={index}>
-                            <Fighter.Img src={fighter.url} />
-                            <Fighter.Name>{fighter.name}</Fighter.Name>
-                        </Fighter.Info>
-                    );
-                }
+            {fighterList.slice(0, 2).map((fighter, index) => {
+                console.log(fighter);
+                return (
+                    <Fighter.Info onClick={() => getSelectWinner(index)} key={index}>
+                        <Fighter.Img src={fighter.url} alt={`${fighter.name} 사진`} />
+                        <Fighter.Name>{fighter.name}</Fighter.Name>
+                    </Fighter.Info>
+                );
             })}
             <p>VS</p>
         </GameSection>
@@ -65,7 +69,7 @@ const Fighter = {
     Img: styled.img`
         width: 100%;
     `,
-    Name: styled.div`
+    Name: styled.strong`
         position: absolute;
         top: 75%;
         left: 50%;

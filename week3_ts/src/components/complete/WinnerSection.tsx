@@ -1,9 +1,14 @@
-import { HandsomeGuy } from "@/core/handsomeGuys";
+import { handsomeGuyStyle } from "@/style/handsomeGuyStyle";
 import React from "react";
 import styled from "styled-components";
 
 interface CompleteProps {
     matchWinners: React.MutableRefObject<HandsomeGuy[]>;
+}
+
+interface HandsomeGuy {
+    name: string;
+    url: string;
 }
 
 export default function WinnerSection(props: CompleteProps) {
@@ -13,7 +18,7 @@ export default function WinnerSection(props: CompleteProps) {
         <StyledRoot>
             <p>👑</p>
             <Winner.Info>
-                <Winner.Img src={matchWinners.current[0].url} />
+                <Winner.Img src={matchWinners.current[0].url} alt="우승자 사진" />
                 <Winner.Name>{matchWinners.current[0].name}</Winner.Name>
             </Winner.Info>
         </StyledRoot>
@@ -43,7 +48,7 @@ const Winner = {
     Img: styled.img`
         width: 100%;
     `,
-    Name: styled.div`
+    Name: styled.strong`
         position: absolute;
         top: 75%;
         left: 50%;

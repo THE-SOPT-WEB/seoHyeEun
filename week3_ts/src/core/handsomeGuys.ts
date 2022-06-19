@@ -1,89 +1,69 @@
-import jongIn from "./김종인.jpg";
-import seHun from "./오세훈.jpg";
-import baekHyun from "./변백현.jpg";
-import junMyeon from "./김준면.jpg";
-import jaeHyun from "./정재현.jpg";
-import doYoung from "./김도영.jpg";
-import jungWoo from "./김정우.jpg";
-import dongHyuk from "./이동혁.jpg";
-import jiYong from "./권지용.jpg";
-import jaeMin from "./나재민.jpg";
-import jeNo from "./이제노.jpg";
-import eunWoo from "./차은우.jpg";
-import jungHan from "./윤정한.jpg";
-import hoShi from "./권호시.jpg";
-import kyoungSoo from "./도경수.jpg";
-import minHyung from "./이민형.jpg";
-
-export interface HandsomeGuy {
-    name: string;
-    url: string;
-}
-
-export const handsomeGuys: HandsomeGuy[] = [
+const handsomeGuys = [
     {
         name: "김종인",
-        url: jongIn,
+        url: "src/assets/images/김종인.jpg",
     },
     {
         name: "오세훈",
-        url: seHun,
+        url: "src/assets/images/오세훈.jpg",
     },
     {
         name: "변백현",
-        url: baekHyun,
+        url: "src/assets/images/변백현.jpg",
     },
     {
         name: "김준면",
-        url: junMyeon,
+        url: "src/assets/images/김준면.jpg",
     },
     {
         name: "정재현",
-        url: jaeHyun,
+        url: "src/assets/images/정재현.jpg",
     },
     {
         name: "김도영",
-        url: doYoung,
+        url: "src/assets/images/김도영.jpg",
     },
     {
         name: "김정우",
-        url: jungWoo,
+        url: "src/assets/images/김정우.jpg",
     },
     {
         name: "이동혁",
-        url: dongHyuk,
+        url: "src/assets/images/이동혁.jpg",
     },
     {
         name: "권지용",
-        url: jiYong,
+        url: "src/assets/images/권지용.jpg",
     },
     {
         name: "나재민",
-        url: jaeMin,
+        url: "src/assets/images/나재민.jpg",
     },
     {
         name: "이제노",
-        url: jeNo,
+        url: "src/assets/images/이제노.jpg",
     },
     {
         name: "차은우",
-        url: eunWoo,
+        url: "src/assets/images/차은우.jpg",
     },
     {
         name: "윤정한",
-        url: jungHan,
+        url: "src/assets/images/윤정한.jpg",
     },
     {
         name: "권호시",
-        url: hoShi,
+        url: "src/assets/images/권호시.jpg",
     },
     {
         name: "도경수",
-        url: kyoungSoo,
+        url: "src/assets/images/도경수.jpg",
     },
 
     {
         name: "이민형",
-        url: minHyung,
+        url: "src/assets/images/이민형.jpg",
     },
 ];
+
+export default handsomeGuys;
