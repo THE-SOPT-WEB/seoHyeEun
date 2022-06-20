@@ -1,14 +1,14 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
+${reset}
 @font-face {
     font-family: 'ParkYongJun';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/ParkYongJun.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
-${reset}
 #root, body, html {
     width: 100%;
     height: auto;

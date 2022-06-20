@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledRoot, StoreName, StoreAddress, StorePhoneNumber } from "./articleStyle";
 
 const StoreArticle = () => {

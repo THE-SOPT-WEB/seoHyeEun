@@ -1,3 +1,4 @@
+// 이건 어떻게 사용할 수 있는 걸까?
 const getLocation = (errHandler) => {
     if ("geolocation" in navigator) {
         return new Promise((resolve) => {
@@ -18,3 +19,5 @@ const getLocation = (errHandler) => {
 
     return { x: 126.942173, y: 37.556293 }; // 신촌 포스빌~
 };
+
+export default getLocation;

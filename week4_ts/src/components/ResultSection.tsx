@@ -1,4 +1,3 @@
-import React from "react";
 import { Result } from "../type/result";
 import Skeleton from "./StoreArticle/Skeleton";
 import StoreArticle from "./StoreArticle/StoreArticle";

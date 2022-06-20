@@ -6,3 +6,7 @@ export interface Result {
     distance?: string;
     phone?: string;
 }
+
+export interface Params {
+    query: string;
+}
