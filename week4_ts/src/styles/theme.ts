@@ -15,6 +15,8 @@ const colors = {
     lemonchiffon: "#fffacd",
     gray: "#6B7280",
     skeleton: "#808080",
+    skyblue: "87ceeb",
+    lightgreen: "99f299",
 };
 
 const theme: DefaultTheme = {

@@ -2,34 +2,50 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { storeSearch } from "../libs/api";
 import { flexColumnCenter } from "../mixxin";
+import theme from "../styles/theme";
 
-function Header(props) {
+interface MainHeaderProps {
+    handleIsSearch: (newIsSearch: boolean) => void;
+    handleResults: (newResults: void[]) => void;
+}
+
+interface Params {
+    query: string;
+}
+
+interface Coordinates {
+    longitude: number;
+    latitude: number;
+}
+
+function Header(props: MainHeaderProps) {
     const { handleIsSearch, handleResults } = props;
-    const [isLocation, setIsLocation] = useState(false);
-    const [input, setInput] = useState("");
-    const searchRef = useRef(null);
-    const position = useRef(null);
+    const [isLocation, setIsLocation] = useState<boolean>(false);
+    const [input, setInput] = useState<string>("");
+    const searchRef = useRef<HTMLInputElement>(null);
+    const position = useRef<Coordinates>({ longitude: 0, latitude: 0 });
     // 위치에 따른 가게 검색 handler
-    const storeSearchHttpHandler = async (params) => {
+    const storeSearchHttpHandler = async (params: Params) => {
         const { data } = await storeSearch(params);
         handleIsSearch(false);
         handleResults(data.documents);
-        console.log("handleResults의 타입은?", data.documents);
     };
     // 위치 handler
     const handleMyLocation = () => {
+        // !position.current 가 무슨뜻일까?
+        // 그리고 내 위치를 켜면 내 위치가 아니라 이름에 바가 들어간게 나옴
         if (!position.current) {
-            new Promise((resolve, rejected) => {
-                navigator.geolocation.getCurrentPosition(resolve, rejected);
-            }).then((res) => {
-                position.current = res.coords;
-                const params = {
-                    x: position.current.longitude,
-                    y: position.current.latitude,
-                    radius: 1000,
-                    query: "바",
-                };
-                storeSearchHttpHandler(params);
+            new Promise((resolve) => {
+                navigator.geolocation.getCurrentPosition((currentPosition) => {
+                    position.current = currentPosition.coords;
+                    const params = {
+                        y: position.current.latitude,
+                        x: position.current.longitude,
+                        radius: 1000,
+                        query: "베이커리",
+                    };
+                    storeSearchHttpHandler(params);
+                });
             });
         } else {
             const params = {
@@ -41,27 +57,32 @@ function Header(props) {
             storeSearchHttpHandler(params);
         }
     };
+
     // 클릭 시 검색 input 비활성화
     const handleInputDisabled = () => {
-        const searchInput = searchRef.current;
-        searchInput.disabled = !searchInput.disabled;
-        setIsLocation((prev) => !prev);
+        if (searchRef.current !== null) {
+            searchRef.current.disabled = !searchRef.current.disabled;
+            setIsLocation((prev) => !prev);
+        }
     };
     // input 변화 감지
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
     };
     // 검색 버튼
-    const handleSearchButton = (e) => {
+    const handleSearchButton = (e: React.MouseEvent<HTMLButtonElement>) => {
         handleIsSearch(true);
         e.preventDefault();
-        if (!searchRef.current.disabled) {
-            const params = {
-                query: input + " " + "바",
-            };
-            storeSearchHttpHandler(params);
-        } else {
-            handleMyLocation();
+        if (searchRef.current !== null) {
+            if (!searchRef.current.disabled) {
+                const params = {
+                    query: input + " " + "바",
+                };
+                storeSearchHttpHandler(params);
+            } else {
+                handleMyLocation();
+                console.log("position 타입은?", position);
+            }
         }
     };
 
@@ -69,7 +90,7 @@ function Header(props) {
         <Styled.Root>
             <h1>우리 동네 BAR 🥂</h1>
             <Styled.SearchWrapper>
-                <MyLocationButton choice={isLocation} onClick={handleInputDisabled}>
+                <MyLocationButton isChoice={isLocation} onClick={handleInputDisabled}>
                     현위치로 할래
                 </MyLocationButton>
                 <SearchLabel>찾고싶은 동네는</SearchLabel>
@@ -80,7 +101,7 @@ function Header(props) {
                     value={input}
                     placeholder="지역을 입력해주세요"
                 />
-                <SearchButton choice={handleIsSearch} type="submit" onClick={handleSearchButton}>
+                <SearchButton isChoice={handleIsSearch} type="submit" onClick={handleSearchButton}>
                     검색
                 </SearchButton>
             </Styled.SearchWrapper>
@@ -89,6 +110,10 @@ function Header(props) {
 }
 
 export default Header;
+
+interface StHeaderProps {
+    isChoice: boolean;
+}
 
 const Styled = {
     Root: styled.header`
@@ -104,8 +129,9 @@ const Styled = {
 };
 
 const MyLocationButton = styled.button`
-    &:active {
-    }
+    // 왜 색 안바뀌지
+    color: ${(props: StHeaderProps) =>
+        props.isChoice ? theme.colors.skyblue : theme.colors.lightgreen};
 `;
 
 const SearchLabel = styled.label`

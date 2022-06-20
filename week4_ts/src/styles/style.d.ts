@@ -17,6 +17,8 @@ declare module "styled-components" {
             brown: string;
             skeleton: string;
             lightYellow: string;
+            skyblue: string;
+            lightgreen: string;
         };
     }
 }
