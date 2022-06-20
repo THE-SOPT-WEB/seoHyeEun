@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { storeSearch } from "../libs/api";
 import { flexColumnCenter } from "../mixxin";
 import theme from "../styles/theme";
+import { Result } from "../type/result";
 
 interface MainHeaderProps {
     handleIsSearch: (newIsSearch: boolean) => void;
-    handleResults: (newResults: void[]) => void;
+    handleResults: (newResults: Result[]) => void;
 }
 
 interface Params {
@@ -22,6 +23,7 @@ function Header(props: MainHeaderProps) {
     const { handleIsSearch, handleResults } = props;
     const [isLocation, setIsLocation] = useState<boolean>(false);
     const [input, setInput] = useState<string>("");
+    //useRef의 타입을 어떻게 정의해여!?!!?
     const searchRef = useRef<HTMLInputElement>(null);
     const position = useRef<Coordinates>({ longitude: 0, latitude: 0 });
     // 위치에 따른 가게 검색 handler
@@ -81,7 +83,6 @@ function Header(props: MainHeaderProps) {
                 storeSearchHttpHandler(params);
             } else {
                 handleMyLocation();
-                console.log("position 타입은?", position);
             }
         }
     };

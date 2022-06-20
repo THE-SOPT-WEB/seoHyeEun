@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { flexColumnCenter } from "../../mixxin";
 import React, { useState } from "react";
-import Header from "../../components/Header.js";
+import Header from "../../components/Header";
 import ResultSection from "../../components/ResultSection";
+import { Result } from "../../type/result";
 
 function Main() {
-    const [results, setResults] = useState<void[]>([]);
+    const [results, setResults] = useState<Result[]>([]);
     const [isSearch, setIsSearch] = useState<boolean>(false);
 
-    const handleResults = (newResults: void[]) => {
+    const handleResults = (newResults: Result[]) => {
         setResults(newResults);
     };
     const handleIsSearch = (newIsSearch: boolean) => {
