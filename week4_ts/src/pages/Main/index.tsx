@@ -5,13 +5,13 @@ import Header from "../../components/Header.js";
 import ResultSection from "../../components/ResultSection";
 
 function Main() {
-    const [results, setResults] = useState([]);
-    const [isSearch, setIsSearch] = useState(false);
+    const [results, setResults] = useState<void[]>([]);
+    const [isSearch, setIsSearch] = useState<boolean>(false);
 
-    const handleResults = (newResults) => {
+    const handleResults = (newResults: void[]) => {
         setResults(newResults);
     };
-    const handleIsSearch = (newIsSearch) => {
+    const handleIsSearch = (newIsSearch: boolean) => {
         setIsSearch(newIsSearch);
     };
 

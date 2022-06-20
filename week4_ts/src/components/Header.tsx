@@ -14,6 +14,7 @@ function Header(props) {
         const { data } = await storeSearch(params);
         handleIsSearch(false);
         handleResults(data.documents);
+        console.log("handleResults의 타입은?", data.documents);
     };
     // 위치 handler
     const handleMyLocation = () => {
