@@ -124,10 +124,8 @@ const Styled = {
     `,
 };
 
-const MyLocationButton = styled.button`
-    // 왜 색 안바뀌지
-    color: ${(props: StHeaderProps) =>
-        props.isChoice ? theme.colors.skyblue : theme.colors.lightgreen};
+const MyLocationButton = styled.button<{ isChoice: boolean }>`
+    color: ${({ isChoice }) => (isChoice ? theme.colors.skyblue : theme.colors.lightgreen)};
 `;
 
 const SearchLabel = styled.label`
