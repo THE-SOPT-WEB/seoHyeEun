@@ -36,10 +36,6 @@ const Styled = {
         overflow: hidden;
         font-size: 5rem;
         background-color: lemonchiffon;
-
-        & h1 {
-            margin-top: 2rem;
-        }
     `,
     SectionWrapper: styled.div`
         ${({ theme }) => theme.flexColumnCenter};

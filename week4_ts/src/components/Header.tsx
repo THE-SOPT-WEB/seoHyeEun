@@ -70,7 +70,7 @@ function Header(props: MainHeaderProps) {
     const handleSearchButton = (e: React.MouseEvent<HTMLButtonElement>) => {
         handleIsSearch(true);
         e.preventDefault();
-        if (searchRef.current !== null) {
+        if (searchRef.current) {
             if (!searchRef.current.disabled) {
                 const params = {
                     query: input + " " + "바",
@@ -84,7 +84,7 @@ function Header(props: MainHeaderProps) {
 
     return (
         <Styled.Root>
-            <h1>우리 동네 BAR 🥂</h1>
+            <Styled.Title>우리 동네 BAR 🥂</Styled.Title>
             <Styled.SearchWrapper>
                 <MyLocationButton isChoice={isLocation} onClick={handleInputDisabled}>
                     현위치로 할래
@@ -107,16 +107,12 @@ function Header(props: MainHeaderProps) {
 
 export default Header;
 
-interface StHeaderProps {
-    isChoice: boolean;
-}
-
 const Styled = {
     Root: styled.header`
         ${({ theme }) => theme.flexColumnCenter};
-        & h1 {
-            margin-bottom: 2rem;
-        }
+    `,
+    Title: styled.h1`
+        margin: 2rem 0;
     `,
     SearchWrapper: styled.div`
         display: flex;
@@ -134,4 +130,4 @@ const SearchLabel = styled.label`
 
 const SearchInput = styled.input``;
 
-const SearchButton = styled.button``;
+const SearchButton = styled.button<{ isChoice: boolean }>``;
