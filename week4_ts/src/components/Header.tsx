@@ -2,15 +2,11 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { storeSearch } from "../libs/api";
 import theme from "../styles/theme";
-import { Result } from "../type/result";
+import { Params, Result } from "../type/result";
 
 interface MainHeaderProps {
     handleIsSearch: (newIsSearch: boolean) => void;
     handleResults: (newResults: Result[]) => void;
-}
-
-interface Params {
-    query: string;
 }
 
 interface Coordinates {
