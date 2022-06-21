@@ -11,14 +11,14 @@ declare module "styled-components" {
             phone: string;
         };
         colors: {
-            main: string;
+            black: string;
             white: string;
-            header: string;
-            brown: string;
+            lemonchiffon: string;
+            gray: string;
             skeleton: string;
-            lightYellow: string;
             skyblue: string;
             lightgreen: string;
         };
+        flexColumnCenter: ThemedCssFunction;
     }
 }

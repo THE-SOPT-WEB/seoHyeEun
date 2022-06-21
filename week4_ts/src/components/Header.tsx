@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { storeSearch } from "../libs/api";
-import { flexColumnCenter } from "../mixxin";
 import theme from "../styles/theme";
 import { Result } from "../type/result";
 
@@ -118,7 +117,7 @@ interface StHeaderProps {
 
 const Styled = {
     Root: styled.header`
-        ${flexColumnCenter}
+        ${({ theme }) => theme.flexColumnCenter};
         & h1 {
             margin-bottom: 2rem;
         }

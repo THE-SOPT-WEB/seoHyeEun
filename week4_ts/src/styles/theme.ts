@@ -1,4 +1,4 @@
-import { DefaultTheme } from "styled-components";
+import { css, DefaultTheme } from "styled-components";
 
 const fontSizes = {
     form: "4rem",
@@ -19,9 +19,17 @@ const colors = {
     lightgreen: "99f299",
 };
 
+const flexColumnCenter = css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
 const theme: DefaultTheme = {
     fontSizes,
     colors,
+    flexColumnCenter,
 };
 
 export default theme;

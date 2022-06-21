@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { flexColumnCenter } from "../../mixxin";
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "../../components/Header";
 import ResultSection from "../../components/ResultSection";
 import { Result } from "../../type/result";
@@ -31,7 +30,7 @@ export default Main;
 
 const Styled = {
     Root: styled.main`
-        ${flexColumnCenter}
+        ${({ theme }) => theme.flexColumnCenter};
         width: 100%;
         height: 100%;
         overflow: hidden;
@@ -43,7 +42,7 @@ const Styled = {
         }
     `,
     SectionWrapper: styled.div`
-        ${flexColumnCenter}
+        ${({ theme }) => theme.flexColumnCenter};
         width: 100%;
         height: 100%;
     `,
