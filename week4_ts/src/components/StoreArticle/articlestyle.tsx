@@ -5,7 +5,6 @@ const loading = keyframes`
 0% {
     transform: translateX(0);
     }   
-50%, 
 100% {
     transform: translateX(46rem);
     }
