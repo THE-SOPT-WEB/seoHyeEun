@@ -39,7 +39,7 @@ function Header(props: MainHeaderProps) {
                         y: position.current.latitude,
                         x: position.current.longitude,
                         radius: 1000,
-                        query: "베이커리",
+                        query: "바",
                     };
                     storeSearchHttpHandler(params);
                 });
